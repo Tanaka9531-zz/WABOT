@@ -133,7 +133,6 @@ after running it you need to scan the qr
 | Bap4k F0nt|✅|
 | Get Link Group|✅|
 | Get Profile Info|✅|
-| Get Link Group|✅|
 | Matematika|✅|
 | Get Admin List|✅|
 | Get List Blocked|✅|
