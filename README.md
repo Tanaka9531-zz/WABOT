@@ -148,7 +148,8 @@ after running it you need to scan the qr
 
 | Groups |Yes|
 | ------------- | ------------- |
-| Owner||
+| Owner|✅|
+| Anti Link|✅|
 | Kick all members|✅|
 | Admin||
 | Add user|✅|
