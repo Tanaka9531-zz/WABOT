@@ -7,7 +7,7 @@ This project require NodeJS v12.
 Clone this project
 
 ```bash
-> git clone https://github.com/thoriqazzikra/whatsapp-bot.git
+> git clone https://github.com/thoriqazzikra/whatsapp-bot1.git
 > cd whatsapp-bot
 ```
 
