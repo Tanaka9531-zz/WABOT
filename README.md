@@ -8,7 +8,7 @@ Clone this project
 
 ```bash
 > git clone https://github.com/thoriqazzikra/whatsapp-bot1.git
-> cd whatsapp-bot
+> cd whatsapp-bot1
 ```
 
 Install the dependencies:
