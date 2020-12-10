@@ -51,12 +51,6 @@ const banned = JSON.parse(fs.readFileSync('./settings/banned.json'))
 const simi = JSON.parse(fs.readFileSync('./settings/simi.json'))
 const ngegas = JSON.parse(fs.readFileSync('./settings/ngegas.json'))
 const setting = JSON.parse(fs.readFileSync('./settings/setting.json'))
-const adminNumber = JSON.parse(fs.readFileSync('./lib/database/admin.json'))
-const limit = JSON.parse(fs.readFileSync('./lib/database/limit.json'))
-const muted = JSON.parse(fs.readFileSync('./lib/database/muted.json'))
-const msgLimit = JSON.parse(fs.readFileSync('./lib/database/msgLimit.json'))
-const nsfw_ = JSON.parse(fs.readFileSync('./lib/database/nsfwz.json'))
-const antilink = JSON.parse(fs.readFileSync('./lib/database/antilink.json'))
 
 let { 
     ownerNumber, 
@@ -93,67 +87,6 @@ const isMuted = (chatId) => {
       }
   }
   const errorurl = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/5B7E46EE484181A676C02DFCAD48ECB1C74BC423/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
-  const errorurl2 = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/5B7E46EE484181A676C02DFCAD48ECB1C74BC423/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
-  // FUNCTION
-function addMsgLimit(id){
-    if (isAdmin) {return;}
-    var found = false
-    Object.keys(msgLimit).forEach((i) => {
-        if(msgLimit[i].id == id){
-            found = i
-        }
-    })
-    if (found !== false) {
-        msgLimit[found].msg += 1;
-        fs.writeFileSync('./lib/database/msgLimit.json',JSON.stringify(msgLimit));
-    }
-}
-function isLimit(id){
-    if (isAdmin) {return false;}
-    let found = false;
-    for (let i of limit){
-        if(i.id === id){
-            let limits = i.limit;
-            if (limits >= limitCount) {
-                found = true;
-                aruga.reply(from, 'Perintah BOT anda sudah mencapai batas, coba esok hari :)', id)
-                return true;
-            }else{
-                limit
-                found = true;
-                return false;
-            }
-        }
-    }
-    if (found === false){
-        let obj = {id: `${id}`, limit:1};
-        limit.push(obj);
-        fs.writeFileSync('./lib/database/limit.json',JSON.stringify(limit));
-        return false;
-    }  
-}
-function limitAdd (id) {
-    if (isAdmin) {return;}
-    var found = false;
-    Object.keys(limit).forEach((i) => {
-        if(limit[i].id == id){
-            found = i
-        }
-    })
-    if (found !== false) {
-        limit[found].limit += 1;
-        fs.writeFileSync('./lib/database/limit.json',JSON.stringify(limit));
-    }
-}
-  if (typeof Array.prototype.splice === 'undefined') {
-    Array.prototype.splice = function (index, howmany, elemes) {
-        howmany = typeof howmany === 'undefined' || this.length;
-        var elems = Array.prototype.slice.call(arguments, 2), newArr = this.slice(0, index), last = this.slice(index + howmany);
-        newArr = newArr.concat.apply(newArr, elems);
-        newArr = newArr.concat.apply(newArr, last);
-        return newArr;
-    }
-}
 
 
 module.exports = HandleMsg = async (aruga, message) => {
@@ -171,72 +104,11 @@ module.exports = HandleMsg = async (aruga, message) => {
 		const pengirim = sender.id
         const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
         const blockNumber = await aruga.getBlockedIds()
-        const serial = sender.id
 
-        const adminNumber = "62895334950905@c.us"
-        const isAdmin = adminNumber.includes(pengirim)
-        const ownerNumber = ["62895334950905@c.us" , "62895334962050@c.us"]
+        const ownerNumber = ["628xxx@c.us" , "628xxx@c.us"]
         const isOwner = ownerNumber.includes(pengirim)
         const isOwnerB = ownerNumber.includes(pengirim)
-        const Anjing = "6282136988960@c.us"
-        const isAnjing = Anjing.includes(sender.id)
-
-        const isWhite = (chatId) => adminNumber.includes(chatId) ? true : false
-        const isWhiteList = (chatId) => {
-            if(adminNumber.includes(sender.id)){
-                if(muted.includes(chatId)) return false
-                return true
-            }else{
-                return false
-            }
-        }
-
-        if(body === 'mute' && isMuted(chatId) == true){
-            if(isGroupMsg) {
-                if (!isAdmin) return aruga.reply(from, 'Maaf, perintah ini hanya dapat dilakukan oleh admin Elaina!', id)
-                if(isMsgLimit(pengirim)){
-                    return
-                }else{
-                    addMsgLimit(pengirim)
-                }
-                muted.push(chatId)
-                fs.writeFileSync('./lib/database/muted.json', JSON.stringify(muted, null, 2))
-                aruga.reply(from, 'Bot telah di mute pada chat ini! #unmute untuk unmute!', id)
-            }else{
-                if(isMsgLimit(pengirim)){
-                    return
-                }else{
-                    addMsgLimit(pengirim)
-                }
-                muted.push(chatId)
-                fs.writeFileSync('./lib/database/muted.json', JSON.stringify(muted, null, 2))
-                reply(from, 'Bot telah di mute pada chat ini! #unmute untuk unmute!', id)
-            }
-        }
-        if(body === 'unmute' && isMuted(chatId) == false){
-            if(isGroupMsg) {
-                if (!isAdmin) return aruga.reply(from, 'Maaf, perintah ini hanya dapat dilakukan oleh admin Elaina!', id)
-                if(isMsgLimit(pengirim)){
-                    return
-                }else{
-                    addMsgLimit(pengirim)
-                }
-                let index = muted.indexOf(chatId);
-                muted.splice(index,1)
-                fs.writeFileSync('./lib/database/muted.json', JSON.stringify(muted, null, 2))
-                aruga.reply(from, 'Bot telah di unmute!', id)         
-            }else{
-                if(isMsgLimit(pengirim)){
-                    return
-                }else{
-                    addMsgLimit(pengirim)
-                }
-                let index = muted.indexOf(chatId);
-                muted.splice(index,1)
-                fs.writeFileSync('./lib/database/muted.json', JSON.stringify(muted, null, 2))
-                aruga.reply(from, 'Bot telah di unmute!', id)                   
-            }
-        }
+        
 
         // PROTECT
         const mess = {
@@ -256,8 +128,6 @@ module.exports = HandleMsg = async (aruga, message) => {
                 Iv: '[❗] Link yang anda kirim tidak valid!'
             }
         }
-        const isBlocked = blockNumber.includes(sender.id)
-        const isNsfw = isGroupMsg ? nsfw_.includes(chat.id) : false
         const isUrl = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi)
 
         // Bot Prefix
@@ -288,7 +158,7 @@ module.exports = HandleMsg = async (aruga, message) => {
             return console.log(color('[BAN]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname))
         }
         //fitur anti link
-        if (isGroupMsg && !isGroupAdmins && !isAdmin && !isOwner){
+        if (isGroupMsg && !isGroupAdmins && !isOwner){
             if (chats.match(/(https:\/\/chat.whatsapp.com)/gi)) {
                 const check = await aruga.inviteInfo(chats);
                 if (!check) {
