@@ -51,6 +51,8 @@ after running it you need to scan the qr
 | ------------- | ------------- |
 | Respond img to sticker|✅|
 | Respond img to sticker no bg|✅|
+| Sticker to Image|✅|
+| TTP|✅|
 | Respond url to sticker|✅|
 | Respond gif to sticker|✅|
 | Respond giphy url to sticker|✅|
@@ -96,6 +98,8 @@ after running it you need to scan the qr
 | Screen Crot!|✅|
 | Play music|✅|
 | whats anime?|✅|
+| Brainly|✅|
+| Google Search|✅|
 
 | Random text |Yes|
 | ------------- | ------------- |
@@ -113,6 +117,14 @@ after running it you need to scan the qr
 | Kpop |✅|
 | Memes |✅|
 
+| Fun Menu |Yes|
+| ------------- | ------------- |
+| Rate|✅|
+| Kapan|✅|
+| Apakah|✅|
+| Bisakah|✅|
+| How's Gay?|✅|
+| Zodiak|✅|
 
 | Others |Yes|
 | ------------- | ------------- |
@@ -122,6 +134,21 @@ after running it you need to scan the qr
 | Covid-19 Indo|✅|
 | Shortlink|✅|
 | Bap4k F0nt|✅|
+| Get Link Group|✅|
+| Get Profile Info|✅|
+| Penyegar Timeline|✅||
+| Get Link Group|✅|
+| Matematika|✅|
+| Get Admin List|✅|
+| Get List Blocked|✅|
+| Get Group Info|✅|
+| List Banned|✅|
+| Motivasi|✅|
+| AI Quotes|✅|
+| Doggo|✅|
+| Owner Group|✅|
+| Dewa Batch|✅|
+| How's Much?|✅|
 
 | Groups |Yes|
 | ------------- | ------------- |
@@ -136,6 +163,7 @@ after running it you need to scan the qr
 | Change Group icon|✅|
 | Delete bot msg|✅|
 | Tagall/mentions all|✅|
+| Revoke Group Link|✅|
 
 
 | Owner bot |Yes|
