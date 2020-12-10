@@ -79,6 +79,12 @@ after running it you need to scan the qr
 | ------------- | ------------- |
 | Simi-simi BOT|✅|
 | Anti kata kasar|✅|
+| Rate|✅|
+| Kapan|✅|
+| Apakah|✅|
+| Bisakah|✅|
+| How's Gay?|✅|
+| Zodiak|✅|
 
 | Primbon |Yes|
 | ------------- | ------------- |
@@ -117,15 +123,6 @@ after running it you need to scan the qr
 | Kpop |✅|
 | Memes |✅|
 
-| Fun Menu |Yes|
-| ------------- | ------------- |
-| Rate|✅|
-| Kapan|✅|
-| Apakah|✅|
-| Bisakah|✅|
-| How's Gay?|✅|
-| Zodiak|✅|
-
 | Others |Yes|
 | ------------- | ------------- |
 | Teks to Sound/Voice|✅|
@@ -136,7 +133,6 @@ after running it you need to scan the qr
 | Bap4k F0nt|✅|
 | Get Link Group|✅|
 | Get Profile Info|✅|
-| Penyegar Timeline|✅||
 | Get Link Group|✅|
 | Matematika|✅|
 | Get Admin List|✅|
@@ -149,6 +145,7 @@ after running it you need to scan the qr
 | Owner Group|✅|
 | Dewa Batch|✅|
 | How's Much?|✅|
+| Penyegar Timeline|✅|
 
 | Groups |Yes|
 | ------------- | ------------- |
