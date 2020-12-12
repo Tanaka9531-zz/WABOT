@@ -49,17 +49,14 @@ const start = (aruga = new Client()) => {
             const pChat = await aruga.getContact(event.who)
             const { contact, groupMetadata, name } = gChat
             const pepe = await aruga.getProfilePicFromServer(event.who)
-            const capt = `*ey yo,what up!* *@${event.who.replace('@c.us','')}*\n\n*Welcome to Our Group*\n\nIntro dulu bruh\n-Nama  :\n-Umur   :\n-Askot  :\nhave fun in our group.\n\n_*Commands bot #help , #menu*_`
-            if (pepe == '' || pepe == undefined) { 
-                await aruga.sendFileFromUrl(event.chat, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQcODjk7AcA4wb_9OLzoeAdpGwmkJqOYxEBA&usqp=CAU', 'profile.jpg', capt)
-                } else {
+            const capt = `*ey yo,what up!* *@${event.who.replace('@c.us','')}*\n\nWelcome to *${name}*\n\nThere is nothing to say, just follow the rules of *${name}* Group\n*Commands bot #help , #menu, #p*`
                     await aruga.sendFileFromUrl(event.chat, pepe, 'profile.jpg', capt)
-                }
         }
         // kondisi ketika seseorang dikick/keluar dari group
         if (event.action === 'remove' && event.who !== host) {
-            await aruga.sendFileFromUrl(event.chat, profile, 'profile.jpg', '')
-            await aruga.sendTextWithMentions(event.chat, `busettt, eh @${event.who.replace('@c.us', '')} udah dipungut malah mau jadi anak pungut lagi.`)
+            const zchat = await aruga.getProfilePicFromServer(event.who)
+            const aigo = `eh @${event.who.replace('@c.us', '')} udah dipungut malah mau jadi anak pungut lagi.`
+            await aruga.sendFileFromUrl(event.chat, zchat, 'profile.jpg', aigo)
         }
     })
 

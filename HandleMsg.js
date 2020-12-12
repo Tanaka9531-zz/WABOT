@@ -10,6 +10,7 @@ const appRoot = require('app-root-path')
 const ffmpeg = require('fluent-ffmpeg')
 const low = require('lowdb')
 const Math_js = require('mathjs');
+const google = require('google-it')
 const FileSync = require('lowdb/adapters/FileSync')
 const db_group = new FileSync(appRoot+'/lib/database/group.json')
 const db = low(db_group)
@@ -78,14 +79,6 @@ const inArray = (needle, haystack) => {
     }
     return false;
 }
-
-const isMuted = (chatId) => {
-    if(muted.includes(chatId)){
-      return false
-  }else{
-      return true
-      }
-  }
   const errorurl = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/5B7E46EE484181A676C02DFCAD48ECB1C74BC423/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
 
 
@@ -105,12 +98,96 @@ module.exports = HandleMsg = async (aruga, message) => {
         const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
         const blockNumber = await aruga.getBlockedIds()
 
-        const ownerNumber = ["628xxx@c.us" , "628xxx@c.us"]
+        const ownerNumber = "62895334950905@c.us"
         const isOwner = ownerNumber.includes(pengirim)
         const isOwnerB = ownerNumber.includes(pengirim)
         
 
         // PROTECT
+        if (body == 'Bot'){
+            aruga.reply(from, 'naonn euyy', id)
+        }
+        if (body == 'bot'){
+            aruga.reply(from, 'naonn euyy')
+        }
+        if (body == 'Boty'){
+            aruga.reply(from, 'dih gay', id)
+        }
+        if (body == 'boty'){
+            aruga.reply(from, 'dih gay', id)
+        }
+        if (body == 'Boti'){
+            aruga.reply(from, 'dih gay', id)
+        }
+        if (body == 'boti'){
+            aruga.reply(from, 'dih gay', id)
+        }
+        if (body == 'Assalamualaikum'){
+            aruga.reply(from, 'Waalaikumsalam', id)
+        }
+        if (body == 'assalamualaikum'){
+            aruga.reply(from, 'Waalaikumsalam', id)
+        }
+        if (body == 'P'){
+            aruga.reply(from, 'salam yang bener babi' , id)
+        }
+        if (body == 'p'){
+            aruga.reply(from, 'salam yang bener babi', id)
+        }
+        if (body == 'woi'){
+            aruga.reply(from, 'apa sayang', id)
+        }
+        if (body == 'Woi'){
+            aruga.reply(from, 'apa sayang', id)
+        }
+        if (body == 'Woi bot'){
+            aruga.reply(from, 'knpa manggil?', id)
+        }
+        if (body == 'woi bot'){
+            aruga.reply(from, 'kenapa manggil?', id)
+        }
+        if (body == 'kacang'){
+            aruga.reply(from, 'direbus atau digoreng?', id)
+        }
+        if (body == 'Kacang'){
+            aruga.reply(from, 'direbus atau digoreng?', id)
+        }
+        if (body == 'hai'){
+            aruga.reply(from, 'haii sayang', id)
+        }
+        if (body == 'hi'){
+            aruga.reply(from, 'hi', id)
+        }
+        if (body == 'Hi'){
+            aruga.reply(from, 'hi', id)
+        }
+        if (body == 'Hai'){
+            aruga.reply(from, 'Hai sayangg', id)
+        }
+        if (body == 'Halo'){
+            aruga.reply(from, 'Halo gaes Bot disini, dan ini adalah command buat show menu pada bot *#help*', id)
+        }
+        if (body == 'halo'){
+            aruga.reply(from, 'Halo gaes Bot disini, dan ini adalah command buat show menu pada bot *#help*', id)
+        }
+        if (body == 'ngentot'){
+            aruga.reply(from, 'Bagus lu begitu?', id)
+        }
+        if (body == 'Ngentot'){
+            aruga.reply(from, 'Bagus lu begitu?', id)
+        }
+        if (body == 'Ayangg'){
+            aruga.reply(from, 'iya ayangg, kenapa?', id)
+        }
+        if (body == 'ayangg'){
+            aruga.reply(from, 'iyaa ayangg, kenapa?', id)
+        }
+        if (body == 'Asu'){
+            aruga.reply(from, 'apasi gajelas')
+        }
+        if (body == 'asu'){
+            aruga.reply(from, 'apasi gajelas')
+        }
         const mess = {
             wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
             error: {
@@ -171,6 +248,20 @@ module.exports = HandleMsg = async (aruga, message) => {
             }
         }
         // Kerang Menu
+        const cegan = [
+            '62895334950905@c.us',
+            '6282136988960@c.us',
+            '6282341126034@c.us',
+            '6287821057464@c.us',
+        ]
+        const cecan = [
+            '628985945421@c.us',
+            '6283819609238@c.us',
+            '6281332494577@c.us',
+            '6281275200288@c.us',
+            '6281262787974@c.us',
+            '6281907437429@c.us'
+        ]
 		const apakah = [
             'Ya',
             'Tidak',
@@ -224,8 +315,41 @@ module.exports = HandleMsg = async (aruga, message) => {
         case 'tnc':
             await aruga.sendText(from, menuId.textTnC())
             break
+        case 'mutegrup':
+			if (!isGroupMsg) return aruga.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup!', id)
+            if (!isGroupAdmins) return aruga.reply(from, 'Gagal, perintah ini hanya dapat digunakan oleh admin grup!', id)
+            if (!isBotGroupAdmins) return aruga.reply(from, 'Gagal, silahkan tambahkan bot sebagai admin grup!', id)
+			if (args.length !== 1) return aruga.reply(from, `Untuk mengubah settingan group chat agar hanya admin saja yang bisa chat\n\nPenggunaan:\n${prefix}mutegrup on --aktifkan\n${prefix}mutegrup off --nonaktifkan`, id)
+            if (args[0] == 'on') {
+				aruga.setGroupToAdminsOnly(groupId, true).then(() => aruga.sendText(from, 'Berhasil mengubah agar hanya admin yang dapat chat!'))
+			} else if (args[0] == 'off') {
+				aruga.setGroupToAdminsOnly(groupId, false).then(() => aruga.sendText(from, 'Berhasil mengubah agar semua anggota dapat chat!'))
+			} else {
+				aruga.reply(from, `Untuk mengubah settingan group chat agar hanya admin saja yang bisa chat\n\nPenggunaan:\n${prefix}mutegrup on --aktifkan\n${prefix}mutegrup off --nonaktifkan`, id)
+			}
+            break
+        case 'seticon':
+			if (!isGroupMsg) return aruga.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup!', id)
+            if (!isGroupAdmins) return aruga.reply(from, 'Gagal, perintah ini hanya dapat digunakan oleh admin grup!', id)
+            if (!isBotGroupAdmins) return aruga.reply(from, 'Gagal, silahkan tambahkan bot sebagai admin grup!', id)
+			if (isMedia && type == 'image' || isQuotedImage) {
+				const dataMedia = isQuotedImage ? quotedMsg : message
+				const _mimetype = dataMedia.mimetype
+				const mediaData = await decryptMedia(dataMedia, uaOverride)
+				const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
+				await aruga.setGroupIcon(groupId, imageBase64)
+			} else if (args.length === 1) {
+				if (!isUrl(url)) { await aruga.reply(from, 'Maaf, link yang kamu kirim tidak valid.', id) }
+				aruga.setGroupIconByUrl(groupId, url).then((r) => (!r && r !== undefined)
+				? aruga.reply(from, 'Maaf, link yang kamu kirim tidak memuat gambar.', id)
+				: aruga.reply(from, 'Berhasil mengubah profile group', id))
+			} else {
+				aruga.reply(from, `Commands ini digunakan untuk mengganti icon/profile group chat\n\n\nPenggunaan:\n1. Silahkan kirim/reply sebuah gambar dengan caption ${prefix}setprofile\n\n2. Silahkan ketik ${prefix}setprofile linkImage`)
+			}
+			break
         case 'menu':
         case 'help':
+        case 'p':
             await aruga.sendText(from, menuId.textMenu(pushname))
             .then(() => ((isGroupMsg) && (isGroupAdmins)) ? aruga.sendText(from, `Menu Admin Grup: *${prefix}menuadmin*`) : null)
             break
@@ -239,17 +363,27 @@ module.exports = HandleMsg = async (aruga, message) => {
             await aruga.sendText(from, menuId.textDonasi())
             break
         case 'mtk':
-            if (args.length === 0) return aruga.reply(from, '[❗] Kirim perintah *#math [ Angka ]*\nContoh : #math 12 * 12\n*NOTE* :\n- Untuk Perkalian Menggunakan *\n- Untuk Pertambahan Menggunakan +\n- Untuk Pengurangan Mennggunakan -\n- Untuk Pembagian Menggunakan /')
+            if (args.length === 2) return aruga.reply(from, '[❗] Kirim perintah *#math [ Angka ]*\nContoh : #math 12 * 12\n*NOTE* :\n- Untuk Perkalian Menggunakan *\n- Untuk Pertambahan Menggunakan +\n- Untuk Pengurangan Mennggunakan -\n- Untuk Pembagian Menggunakan /')
             const mtk = body.slice(6)
             if (typeof Math_js.evaluate(mtk) !== "number") {
             aruga.reply(from, `"${mtk}", bukan angka!\n[❗] Kirim perintah *#math [ Angka ]*\nContoh : #math 12 * 12\n*NOTE* :\n- Untuk Perkalian Menggunakan *\n- Untuk Pertambahan Menggunakan +\n- Untuk Pengurangan Mennggunakan -\n- Untuk Pembagian Menggunakan /`, id)
         } else {
-            aruga.reply(from, `*「 MATH 」*\n\n*Kalkulator*\n${mtk} = ${Math_js.evaluate(mtk)}`, id)
+            aruga.reply(from, `*Bot Answer :*\n*${mtk} = ${Math_js.evaluate(mtk)}*`, id)
         }
         break
         case 'ownerbot':
             await aruga.sendContact(from, ownerNumber)
             .then(() => aruga.sendText(from, 'Mutualann skuyyy'))
+            break
+            case 'cogan':
+            const ganteng = cegan[Math.floor(Math.random() * (cegan.length))]
+            await aruga.sendContact(from, ganteng)
+            .then(() => aruga.sendText(from, 'nehh nomer cogann xixi'))
+            break
+            case 'cecan':
+            const cantik = cecan[Math.floor(Math.random() * (cecan.length))]
+            await aruga.sendContact(from, cantik)
+            .then(() => aruga.sendText(from, 'nehh nomer cecann xixi'))
             break
             case 'doggo':
                 const list = ["https://cdn.shibe.online/shibes/247d0ac978c9de9d9b66d72dbdc65f2dac64781d.jpg","https://cdn.shibe.online/shibes/1cf322acb7d74308995b04ea5eae7b520e0eae76.jpg","https://cdn.shibe.online/shibes/1ce955c3e49ae437dab68c09cf45297d68773adf.jpg","https://cdn.shibe.online/shibes/ec02bee661a797518d37098ab9ad0c02da0b05c3.jpg","https://cdn.shibe.online/shibes/1e6102253b51fbc116b887e3d3cde7b5c5083542.jpg","https://cdn.shibe.online/shibes/f0c07a7205d95577861eee382b4c8899ac620351.jpg","https://cdn.shibe.online/shibes/3eaf3b7427e2d375f09fc883f94fa8a6d4178a0a.jpg","https://cdn.shibe.online/shibes/c8b9fcfde23aee8d179c4c6f34d34fa41dfaffbf.jpg","https://cdn.shibe.online/shibes/55f298bc16017ed0aeae952031f0972b31c959cb.jpg","https://cdn.shibe.online/shibes/2d5dfe2b0170d5de6c8bc8a24b8ad72449fbf6f6.jpg","https://cdn.shibe.online/shibes/e9437de45e7cddd7d6c13299255e06f0f1d40918.jpg","https://cdn.shibe.online/shibes/6c32141a0d5d089971d99e51fd74207ff10751e7.jpg","https://cdn.shibe.online/shibes/028056c9f23ff40bc749a95cc7da7a4bb734e908.jpg","https://cdn.shibe.online/shibes/4fb0c8b74dbc7653e75ec1da597f0e7ac95fe788.jpg","https://cdn.shibe.online/shibes/125563d2ab4e520aaf27214483e765db9147dcb3.jpg","https://cdn.shibe.online/shibes/ea5258fad62cebe1fedcd8ec95776d6a9447698c.jpg","https://cdn.shibe.online/shibes/5ef2c83c2917e2f944910cb4a9a9b441d135f875.jpg","https://cdn.shibe.online/shibes/6d124364f02944300ae4f927b181733390edf64e.jpg","https://cdn.shibe.online/shibes/92213f0c406787acd4be252edb5e27c7e4f7a430.jpg","https://cdn.shibe.online/shibes/40fda0fd3d329be0d92dd7e436faa80db13c5017.jpg","https://cdn.shibe.online/shibes/e5c085fc427528fee7d4c3935ff4cd79af834a82.jpg","https://cdn.shibe.online/shibes/f83fa32c0da893163321b5cccab024172ddbade1.jpg","https://cdn.shibe.online/shibes/4aa2459b7f411919bf8df1991fa114e47b802957.jpg","https://cdn.shibe.online/shibes/2ef54e174f13e6aa21bb8be3c7aec2fdac6a442f.jpg","https://cdn.shibe.online/shibes/fa97547e670f23440608f333f8ec382a75ba5d94.jpg","https://cdn.shibe.online/shibes/fb1b7150ed8eb4ffa3b0e61ba47546dd6ee7d0dc.jpg","https://cdn.shibe.online/shibes/abf9fb41d914140a75d8bf8e05e4049e0a966c68.jpg","https://cdn.shibe.online/shibes/f63e3abe54c71cc0d0c567ebe8bce198589ae145.jpg","https://cdn.shibe.online/shibes/4c27b7b2395a5d051b00691cc4195ef286abf9e1.jpg","https://cdn.shibe.online/shibes/00df02e302eac0676bb03f41f4adf2b32418bac8.jpg","https://cdn.shibe.online/shibes/4deaac9baec39e8a93889a84257338ebb89eca50.jpg","https://cdn.shibe.online/shibes/199f8513d34901b0b20a33758e6ee2d768634ebb.jpg","https://cdn.shibe.online/shibes/f3efbf7a77e5797a72997869e8e2eaa9efcdceb5.jpg","https://cdn.shibe.online/shibes/39a20ccc9cdc17ea27f08643b019734453016e68.jpg","https://cdn.shibe.online/shibes/e67dea458b62cf3daa4b1e2b53a25405760af478.jpg","https://cdn.shibe.online/shibes/0a892f6554c18c8bcdab4ef7adec1387c76c6812.jpg","https://cdn.shibe.online/shibes/1b479987674c9b503f32e96e3a6aeca350a07ade.jpg","https://cdn.shibe.online/shibes/0c80fc00d82e09d593669d7cce9e273024ba7db9.jpg","https://cdn.shibe.online/shibes/bbc066183e87457b3143f71121fc9eebc40bf054.jpg","https://cdn.shibe.online/shibes/0932bf77f115057c7308ef70c3de1de7f8e7c646.jpg","https://cdn.shibe.online/shibes/9c87e6bb0f3dc938ce4c453eee176f24636440e0.jpg","https://cdn.shibe.online/shibes/0af1bcb0b13edf5e9b773e34e54dfceec8fa5849.jpg","https://cdn.shibe.online/shibes/32cf3f6eac4673d2e00f7360753c3f48ed53c650.jpg","https://cdn.shibe.online/shibes/af94d8eeb0f06a0fa06f090f404e3bbe86967949.jpg","https://cdn.shibe.online/shibes/4b55e826553b173c04c6f17aca8b0d2042d309fb.jpg","https://cdn.shibe.online/shibes/a0e53593393b6c724956f9abe0abb112f7506b7b.jpg","https://cdn.shibe.online/shibes/7eba25846f69b01ec04de1cae9fed4b45c203e87.jpg","https://cdn.shibe.online/shibes/fec6620d74bcb17b210e2cedca72547a332030d0.jpg","https://cdn.shibe.online/shibes/26cf6be03456a2609963d8fcf52cc3746fcb222c.jpg","https://cdn.shibe.online/shibes/c41b5da03ad74b08b7919afc6caf2dd345b3e591.jpg","https://cdn.shibe.online/shibes/7a9997f817ccdabac11d1f51fac563242658d654.jpg","https://cdn.shibe.online/shibes/7221241bad7da783c3c4d84cfedbeb21b9e4deea.jpg","https://cdn.shibe.online/shibes/283829584e6425421059c57d001c91b9dc86f33b.jpg","https://cdn.shibe.online/shibes/5145c9d3c3603c9e626585cce8cffdfcac081b31.jpg","https://cdn.shibe.online/shibes/b359c891e39994af83cf45738b28e499cb8ffe74.jpg","https://cdn.shibe.online/shibes/0b77f74a5d9afaa4b5094b28a6f3ee60efcb3874.jpg","https://cdn.shibe.online/shibes/adccfdf7d4d3332186c62ed8eb254a49b889c6f9.jpg","https://cdn.shibe.online/shibes/3aac69180f777512d5dabd33b09f531b7a845331.jpg","https://cdn.shibe.online/shibes/1d25e4f592db83039585fa480676687861498db8.jpg","https://cdn.shibe.online/shibes/d8349a2436420cf5a89a0010e91bf8dfbdd9d1cc.jpg","https://cdn.shibe.online/shibes/eb465ef1906dccd215e7a243b146c19e1af66c67.jpg","https://cdn.shibe.online/shibes/3d14e3c32863195869e7a8ba22229f457780008b.jpg","https://cdn.shibe.online/shibes/79cedc1a08302056f9819f39dcdf8eb4209551a3.jpg","https://cdn.shibe.online/shibes/4440aa827f88c04baa9c946f72fc688a34173581.jpg","https://cdn.shibe.online/shibes/94ea4a2d4b9cb852e9c1ff599f6a4acfa41a0c55.jpg","https://cdn.shibe.online/shibes/f4478196e441aef0ada61bbebe96ac9a573b2e5d.jpg","https://cdn.shibe.online/shibes/96d4db7c073526a35c626fc7518800586fd4ce67.jpg","https://cdn.shibe.online/shibes/196f3ed10ee98557328c7b5db98ac4a539224927.jpg","https://cdn.shibe.online/shibes/d12b07349029ca015d555849bcbd564d8b69fdbf.jpg","https://cdn.shibe.online/shibes/80fba84353000476400a9849da045611a590c79f.jpg","https://cdn.shibe.online/shibes/94cb90933e179375608c5c58b3d8658ef136ad3c.jpg","https://cdn.shibe.online/shibes/8447e67b5d622ef0593485316b0c87940a0ef435.jpg","https://cdn.shibe.online/shibes/c39a1d83ad44d2427fc8090298c1062d1d849f7e.jpg","https://cdn.shibe.online/shibes/6f38b9b5b8dbf187f6e3313d6e7583ec3b942472.jpg","https://cdn.shibe.online/shibes/81a2cbb9a91c6b1d55dcc702cd3f9cfd9a111cae.jpg","https://cdn.shibe.online/shibes/f1f6ed56c814bd939645138b8e195ff392dfd799.jpg","https://cdn.shibe.online/shibes/204a4c43cfad1cdc1b76cccb4b9a6dcb4a5246d8.jpg","https://cdn.shibe.online/shibes/9f34919b6154a88afc7d001c9d5f79b2e465806f.jpg","https://cdn.shibe.online/shibes/6f556a64a4885186331747c432c4ef4820620d14.jpg","https://cdn.shibe.online/shibes/bbd18ae7aaf976f745bc3dff46b49641313c26a9.jpg","https://cdn.shibe.online/shibes/6a2b286a28183267fca2200d7c677eba73b1217d.jpg","https://cdn.shibe.online/shibes/06767701966ed64fa7eff2d8d9e018e9f10487ee.jpg","https://cdn.shibe.online/shibes/7aafa4880b15b8f75d916b31485458b4a8d96815.jpg","https://cdn.shibe.online/shibes/b501169755bcf5c1eca874ab116a2802b6e51a2e.jpg","https://cdn.shibe.online/shibes/a8989bad101f35cf94213f17968c33c3031c16fc.jpg","https://cdn.shibe.online/shibes/f5d78feb3baa0835056f15ff9ced8e3c32bb07e8.jpg","https://cdn.shibe.online/shibes/75db0c76e86fbcf81d3946104c619a7950e62783.jpg","https://cdn.shibe.online/shibes/8ac387d1b252595bbd0723a1995f17405386b794.jpg","https://cdn.shibe.online/shibes/4379491ef4662faa178f791cc592b52653fb24b3.jpg","https://cdn.shibe.online/shibes/4caeee5f80add8c3db9990663a356e4eec12fc0a.jpg","https://cdn.shibe.online/shibes/99ef30ea8bb6064129da36e5673649e957cc76c0.jpg","https://cdn.shibe.online/shibes/aeac6a5b0a07a00fba0ba953af27734d2361fc10.jpg","https://cdn.shibe.online/shibes/9a217cfa377cc50dd8465d251731be05559b2142.jpg","https://cdn.shibe.online/shibes/65f6047d8e1d247af353532db018b08a928fd62a.jpg","https://cdn.shibe.online/shibes/fcead395cbf330b02978f9463ac125074ac87ab4.jpg","https://cdn.shibe.online/shibes/79451dc808a3a73f99c339f485c2bde833380af0.jpg","https://cdn.shibe.online/shibes/bedf90869797983017f764165a5d97a630b7054b.jpg","https://cdn.shibe.online/shibes/dd20e5801badd797513729a3645c502ae4629247.jpg","https://cdn.shibe.online/shibes/88361ee50b544cb1623cb259bcf07b9850183e65.jpg","https://cdn.shibe.online/shibes/0ebcfd98e8aa61c048968cb37f66a2b5d9d54d4b.jpg"]
@@ -275,12 +409,12 @@ module.exports = HandleMsg = async (aruga, message) => {
                 await aruga.joinGroupViaLink(linkgrup)
                       .then(async () => {
                           await aruga.sendText(from, 'Donee sayanggg')
-                          await aruga.sendText(chekgrup.id, `what up y'all~, I'm Thoriq BOT. Untuk mencari tahu command BOT, ketik ${prefix}menu`)
+                          await aruga.sendText(chekgrup.id, `what up y'all~, I'm Thoriq Bot. To find out commands Bot menu, type ${prefix}menu`)
                       })
             } else {
                 let cgrup = await aruga.getAllGroups()
                 if (cgrup.length > groupLimit) return aruga.reply(from, `Sorry, the group on this bot is full\nMax Group is: ${groupLimit}`, id)
-                if (cgrup.size < memberLimit) return aruga.reply(from, `Sorry, BOT gabakalan masuk kalo membernya full bangsat. ${memberLimit} people`, id)
+                if (cgrup.size < memberLimit) return aruga.reply(from, `Sorry, Bot gabakalan masuk kalo membernya full bangsat. ${memberLimit} people`, id)
                 await aruga.joinGroupViaLink(linkgrup)
                       .then(async () =>{
                           await aruga.reply(from, 'Donee sayangg', id)
@@ -458,7 +592,7 @@ module.exports = HandleMsg = async (aruga, message) => {
                     })
                 })
             } else {
-                aruga.reply(from, 'Usage :\nbrainly [pertanyaan] [.jumlah]\n\nEx : \n!brainly NKRI .2', id)
+                aruga.reply(from, 'Usage :\nbrainly [pertanyaan] [.jumlah]\n\nEx : \n#brainly NKRI .2', id)
             }
             break
         case 'meme':
@@ -479,6 +613,12 @@ module.exports = HandleMsg = async (aruga, message) => {
             } else {
                 await aruga.reply(from, `Tidak ada gambar! Silahkan kirim gambar dengan caption ${prefix}meme <teks_atas> | <teks_bawah>\ncontoh: ${prefix}meme teks atas | teks bawah`, id)
             }
+            break
+        case 'ptl':
+            if (!isGroupMsg) return aruga.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
+            const pptl = ["https://i.pinimg.com/564x/b2/84/55/b2845599d303a4f8fc4f7d2a576799fa.jpg","https://i.pinimg.com/236x/98/08/1c/98081c4dffde1c89c444db4dc1912d2d.jpg","https://i.pinimg.com/236x/a7/e2/fe/a7e2fee8b0abef9d9ecc8885557a4e91.jpg","https://i.pinimg.com/236x/ee/ae/76/eeae769648dfaa18cac66f1d0be8c160.jpg","https://i.pinimg.com/236x/b2/84/55/b2845599d303a4f8fc4f7d2a576799fa.jpg","https://i.pinimg.com/564x/78/7c/49/787c4924083a9424a900e8f1f4fdf05f.jpg","https://i.pinimg.com/236x/eb/05/dc/eb05dc1c306f69dd43b7cae7cbe03d27.jpg","https://i.pinimg.com/236x/d0/1b/40/d01b40691c68b84489f938b939a13871.jpg","https://i.pinimg.com/236x/31/f3/06/31f3065fa218856d7650e84b000d98ab.jpg","https://i.pinimg.com/236x/4a/e5/06/4ae5061a5c594d3fdf193544697ba081.jpg","https://i.pinimg.com/236x/56/45/dc/5645dc4a4a60ac5b2320ce63c8233d6a.jpg","https://i.pinimg.com/236x/7f/ad/82/7fad82eec0fa64a41728c9868a608e73.jpg","https://i.pinimg.com/236x/ce/f8/aa/cef8aa0c963170540a96406b6e54991c.jpg","https://i.pinimg.com/236x/77/02/34/77023447b040aef001b971e0defc73e3.jpg","https://i.pinimg.com/236x/4a/5c/38/4a5c38d39687f76004a097011ae44c7d.jpg","https://i.pinimg.com/236x/41/72/af/4172af2053e54ec6de5e221e884ab91b.jpg","https://i.pinimg.com/236x/26/63/ef/2663ef4d4ecfc935a6a2b51364f80c2b.jpg","https://i.pinimg.com/236x/2b/cb/48/2bcb487b6d398e8030814c7a6c5a641d.jpg","https://i.pinimg.com/236x/62/da/23/62da234d941080696428e6d4deec6d73.jpg","https://i.pinimg.com/236x/d4/f3/40/d4f340e614cc4f69bf9a31036e3d03c5.jpg","https://i.pinimg.com/236x/d4/97/dd/d497dd29ca202be46111f1d9e62ffa65.jpg","https://i.pinimg.com/564x/52/35/66/523566d43058e26bf23150ac064cfdaa.jpg","https://i.pinimg.com/236x/36/e5/27/36e52782f8d10e4f97ec4dbbc97b7e67.jpg","https://i.pinimg.com/236x/02/a0/33/02a033625cb51e0c878e6df2d8d00643.jpg","https://i.pinimg.com/236x/30/9b/04/309b04d4a498addc6e4dd9d9cdfa57a9.jpg","https://i.pinimg.com/236x/9e/1d/ef/9e1def3b7ce4084b7c64693f15b8bea9.jpg","https://i.pinimg.com/236x/e1/8f/a2/e18fa21af74c28e439f1eb4c60e5858a.jpg","https://i.pinimg.com/236x/22/d9/22/22d9220de8619001fe1b27a2211d477e.jpg","https://i.pinimg.com/236x/af/ac/4d/afac4d11679184f557d9294c2270552d.jpg","https://i.pinimg.com/564x/52/be/c9/52bec924b5bdc0d761cfb1160865b5a1.jpg","https://i.pinimg.com/236x/1a/5a/3c/1a5a3cffd0d936cd4969028668530a15.jpg"]
+            let pep = pptl[Math.floor(Math.random() * pptl.length)]
+            aruga.sendFileFromUrl(from, pep, 'pptl.jpg', 'nihh ngab', id)
             break
         case 'quotemaker':
         case 'qtmkr' :
@@ -504,7 +644,6 @@ module.exports = HandleMsg = async (aruga, message) => {
             var totalMem = chat.groupMetadata.participants.length
             var desc = chat.groupMetadata.desc
             var groupname = name
-            var antlink = antilink.includes(chat.id)
             var grouppic = await aruga.getProfilePicFromServer(chat.id)
             if (grouppic == undefined) {
                  var pfp = errorurl
@@ -514,7 +653,6 @@ module.exports = HandleMsg = async (aruga, message) => {
             await aruga.sendFileFromUrl(from, pfp, 'group.png', `*「 GROUP INFO 」*
 *➸ *Name : ${groupname}* 
 *➸ Members : ${totalMem}*
-*➸ Anti Link : ${antlink ? 'Aktif' : 'Tidak Aktif'}*
 *➸ Group Description* 
 ${desc}`)
             break
@@ -782,9 +920,9 @@ ${desc}`)
                                 console.log(`[ERR] ${err}`);
                             });
                     }
-                    break
+                    break 
         case 'urgay':
-		    if (args.length == 0) return aruga.reply(from, `Untuk mengetahui seberapa gay seseorang gunakan ${prefix}howgay namanya\n\nContoh: #howgay burhan`, id)
+		    if (args.length == 0) return aruga.reply(from, `Untuk mengetahui seberapa gay seseorang gunakan ${prefix}urgay namanya\n\nContoh: #howgay burhan`, id)
             fetch('https://raw.githubusercontent.com/MrPawNO/howgay/main/howgay.txt')
             .then(res => res.text())
             .then(body => {
@@ -993,6 +1131,20 @@ ${desc}`)
                 aruga.reply(from, 'Ada yang Error!', id)
             })
             break
+            case 'google':
+                const googleQuery = body.slice(8)
+                if(googleQuery == undefined || googleQuery == ' ') return aruga.reply(from, `*Hasil Pencarian : ${googleQuery}* tidak ditemukan`, id)
+                google({ 'query': googleQuery }).then(results => {
+                let vars = `_*Hasil Pencarian : ${googleQuery}*_\n`
+                for (let i = 0; i < results.length; i++) {
+                    vars +=  `\n═════════════════\n\n*Judul* : ${results[i].title}\n\n*Deskripsi* : ${results[i].snippet}\n\n*Link* : ${results[i].link}\n\n`
+                }
+                    aruga.reply(from, vars, id);
+                }).catch(e => {
+                    console.log(e)
+                    aruga.sendText(ownerNumber, 'Google Error : ' + e);
+                })
+                break
         case 'ss': //jika error silahkan buka file di folder settings/api.json dan ubah apiSS 'API-KEY' yang kalian dapat dari website https://apiflash.com/
             if (args.length == 0) return aruga.reply(from, `Membuat bot men-screenshot sebuah web\n\nPemakaian: ${prefix}ss [url]\n\ncontoh: ${prefix}ss http://google.com`, id)
             const scrinshit = await meme.ss(args[0])
@@ -1211,21 +1363,6 @@ ${desc}`)
             }
             await aruga.reply(from, bened, id)
             break
-        case 'afk' :
-            if (isBanned) return false
-            if (isGroupMsg) {
-                const namasu = pushname
-                const textnya = body.slice(8)
-                if (sender.id[8] == `${textnya}`) {
-                    aruga.get(chatId)
-            }
-            aruga.reply(from, `*${namasu} Sekarang AFK!! [Away From Keyboard]*\nReason : ${textnya}`)
-        } else if(sender.id[8] == `${textnya}`) {
-                aruga.get(chatId)
-                var textnya = body.slice(8)
-            }
-            aruga.reply(from, `${namasu} Sekarang tidak AFK!`) 
-        break
         case 'me':
             if (isBanned) return false
             if (isGroupMsg) {
@@ -1423,7 +1560,7 @@ ${desc}`)
             const groups = await aruga.getAllGroups()
             const groupsIn = groups.filter(x => x.groupMetadata.participants.map(x => [botNumber, '@c.us'].includes(x.id._serialized)).includes(true))
             for (let gclist of allGroupz) {
-                await aruga.sendText(gclist.contact.id, `Maaf bot sedang pembersihan,\n- Total Chat Aktif : *${allChatz.length}*\n- Group Joined *${groupsIn.length}*\n- Loaded Messages : *${loadedMsg}*\n- Personal Chat Aktif *${allChatz.length - groups.length - groupsIn.length}*\n\n\nSilahkan invite bot lagi jika dibutuhkan`)
+                await aruga.sendText(gclist.contact.id, `Maaf bot sedang pembersihan,\n- Total Chat Aktif : *${allChatz.length}*\n- Group Joined : *${groupsIn.length}*\n- Loaded Messages : *${loadedMsg}*\n- Personal Chat Aktif : *${allChatz.length - groups.length - groupsIn.length}*\n\n\nSilahkan invite bot lagi jika dibutuhkan`)
                 await aruga.leaveGroup(gclist.contact.id)
                 await aruga.deleteChat(gclist.contact.id)
             }
