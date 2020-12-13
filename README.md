@@ -8,9 +8,9 @@
 <a href="https://github.com/thoriqazzikra"><img title="Author" src="https://img.shields.io/badge/AUTHOR-Thoriq-blue.svg?style=for-the-badge&logo=github"></a>
 <p align="center">
 <a href="https://github.com/thoriqazzikra/followers"><img title="Followers" src="https://img.shields.io/github/followers/thoriqazzikra?color=blue&style=flat-square"></a>
-<a href="https://github.com/thoriqazzikra/whatsapp-bot2/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/thoriqazzikra/whatsapp-bot2?color=red&style=flat-square"></a>
-<a href="https://github.com/thoriqazzikra/whatsapp-bot2/network/members"><img title="Forks" src="https://img.shields.io/github/forks/thoriqazzikra/whatsapp-bot2?color=red&style=flat-square"></a>
-<a href="https://github.com/thoriqazzikra/whatsapp-bot2/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/thoriqazzikra/whatsapp-bot2?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://github.com/thoriqazzikra/whatsapp-bot1/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/thoriqazzikra/whatsapp-bot1?color=red&style=flat-square"></a>
+<a href="https://github.com/thoriqazzikra/whatsapp-bot1/network/members"><img title="Forks" src="https://img.shields.io/github/forks/thoriqazzikra/whatsapp-bot1?color=red&style=flat-square"></a>
+<a href="https://github.com/thoriqazzikra/whatsapp-bot1/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/thoriqazzikra/whatsapp-bot1?label=Watchers&color=blue&style=flat-square"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fthoriqazzikra&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 </p>
 
